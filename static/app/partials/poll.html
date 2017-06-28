@@ -1,0 +1,59 @@
+<div class="container">
+    <div align="right">
+        <button class="btn btn-info" ng-click="addPoll()"> Adicionar nova lista </button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="poll in polls">
+            <td>{$ poll.title $} </td>
+            <td>{$ poll.description $} </td>
+            <td>
+                <span class="glyphicon glyphicon-plus padding5" tooltip="Visualizar" ng-click="viewPoll('task')"></span>
+                <span class="glyphicon glyphicon-edit padding5" tooltip="Edit" ng-click="editPoll(poll)"></span>
+                <span class="glyphicon glyphicon-trash padding5" tooltip="Delete" ng-click="deletePoll(poll.id)"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script type="text/ng-template" id="deletePollModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Apagar lista</h3>
+        </div>
+        <div class="modal-body">
+            <span>Gostaria de apagar essa lista?</span>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        </div>
+    </script>
+
+
+    <script type="text/ng-template" id="addPollModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Adicionar lista</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Título:</label>
+                <input type="text" class="form-control" ng-model="model.title">
+            </div>
+            <div class="form-group">
+                <label>Descrição:</label>
+                <input type="text" class="form-control" ng-model="model.description">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="save()">Salvar</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        </div>
+    </script>
+</div>
