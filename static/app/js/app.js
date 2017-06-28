@@ -5,10 +5,8 @@ var app = angular.module('todolist', [ 'ui.router', 'ui.bootstrap']);
 
 // Used for configuring the interpolation markup. Defaults to {{ and }}.
 app.config(['$interpolateProvider', function($interpolateProvider) {
-
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
-
 }]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

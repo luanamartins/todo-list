@@ -65,7 +65,8 @@ app.controller('PollController', ['$scope', '$state', '$modal', 'pollServices', 
             });
     };
 
-    $scope.viewPoll = function(link){
+    $scope.viewPoll = function(poll_id, link){
+      $state.get("task").poll_key = poll_id;
       $state.go("task");
     };
 

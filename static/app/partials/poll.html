@@ -15,7 +15,7 @@
             <td>{$ poll.title $} </td>
             <td>{$ poll.description $} </td>
             <td>
-                <span class="glyphicon glyphicon-plus padding5" tooltip="Visualizar" ng-click="viewPoll('task')"></span>
+                <span class="glyphicon glyphicon-plus padding5" tooltip="Visualizar" ng-click="viewPoll(poll.id, 'task')"></span>
                 <span class="glyphicon glyphicon-edit padding5" tooltip="Edit" ng-click="editPoll(poll)"></span>
                 <span class="glyphicon glyphicon-trash padding5" tooltip="Delete" ng-click="deletePoll(poll.id)"></span>
             </td>

@@ -97,12 +97,12 @@ app.controller('TaskController', ['$scope', '$state', '$modal', 'taskServices', 
 }]);
 
 
-app.controller('addTaskModalInstanceCtrl', ['$scope', '$modalInstance', 'taskServices', function ($scope, $modalInstance, taskServices) {
+app.controller('addTaskModalInstanceCtrl', ['$scope', '$state', '$modalInstance', 'taskServices', function ($scope, $state, $modalInstance, taskServices) {
 
-    $scope.model = { 'description': '' };
+    $scope.model = { 'description': '' , 'poll_key' : $state.current.poll_key };
 
     $scope.save = function () {
-
+      console.log('Model ',$scope.model)
         taskServices.addTask($scope.model)
             .then(function(data) {
 
