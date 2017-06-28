@@ -11,13 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Person',
+            name='Poll',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=254)),
-                ('age', models.IntegerField()),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('title', models.CharField(max_length=200)),
+                ('description', models.TextField()),
+                ('due_date', models.DateTimeField(blank=True, null=True)),
             ],
         ),
     ]
