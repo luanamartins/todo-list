@@ -4,7 +4,9 @@ var app = angular.module('todolist', [ 'ui.router', 'ui.bootstrap']);
 
 
 // Used for configuring the interpolation markup. Defaults to {{ and }}.
-app.config(['$interpolateProvider', function($interpolateProvider) {
+app.config(['$interpolateProvider', '$httpProvider', function($interpolateProvider, $httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
 }]);
