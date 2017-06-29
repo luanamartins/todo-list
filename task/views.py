@@ -18,5 +18,6 @@ class SearchTask(generics.ListAPIView):
 
     def get_queryset(self):
         q = self.kwargs['q']
-        return Person.objects.filter(Q(description__iexact=q))
+        print("Valor de q = " + q)
+        return Task.objects.filter(Q(poll_key__iexact=q))
         # | Q(email__iexact=q))
