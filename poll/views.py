@@ -4,10 +4,6 @@ from poll.models import Poll
 from poll.serializers import PollSerializer
 from django.shortcuts import render
 
-
-# Create your views here.
-
-
 class PollList(generics.ListCreateAPIView):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer

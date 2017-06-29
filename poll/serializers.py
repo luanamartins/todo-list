@@ -3,6 +3,5 @@ from poll.models import Poll
 
 
 class PollSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Poll
