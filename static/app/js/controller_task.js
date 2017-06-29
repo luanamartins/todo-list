@@ -2,9 +2,17 @@
 
 app.controller('TaskController', ['$scope', '$state', '$modal', 'taskServices', function($scope, $state, $modal, taskServices) {
 
-    taskServices.getTask()
+    var poll_key = $state.current.poll_key;
+
+    taskServices.getTask(poll_key)
         .then(function(data) {
-            $scope.tasks = data;
+            var tasksFromPoll = [];
+            data.forEach(function(item){
+              if(item.poll_key === poll_key){
+                tasksFromPoll.push(item);
+              }
+            });
+            $scope.tasks = tasksFromPoll;
         },
         function(data) {
            console.log('error', data);
